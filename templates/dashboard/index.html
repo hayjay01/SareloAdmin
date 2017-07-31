@@ -168,7 +168,7 @@
                 <!-- BEGIN SIDEBAR -->
                
                 <div class="page-sidebar navbar-collapse collapse">
-                    <ul class="page-sidebar-menu">
+                    <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item  active open">
                             <a href="index.html" class="nav-link ">
                                 <i class="icon-home"></i>
@@ -206,6 +206,32 @@
                                 <i class="icon-graph"></i>
                                 <span class="title">Products</span>
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title">Charts</span>
+                                <span class="selected"></span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu" style="display: none;">
+                                <li class="nav-item  active open">
+                                    <a href="charts_amcharts.html" class="nav-link ">
+                                        <span class="title">amChart</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="charts_flotcharts.html" class="nav-link ">
+                                        <span class="title">Flotchart</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="charts_flowchart.html" class="nav-link ">
+                                        <span class="title">Flowchart</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

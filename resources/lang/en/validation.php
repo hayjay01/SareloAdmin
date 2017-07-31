@@ -98,8 +98,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'slot_id' => [
+            'required' => 'Please choose an available slot to proceed.',
         ],
     ],
 

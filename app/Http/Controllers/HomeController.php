@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $completed_orders = Order::GetOrderDetails(\Auth::user()->id, 'completed')->get();
+        $completed_orders = Order::GetOrderDetails(\Auth::user()->id, 'delivered')->get();
 
         $pending_orders = Order::GetOrderDetails(\Auth::user()->id, 'pending')->get();
 
@@ -36,7 +36,7 @@ class HomeController extends Controller
     public function orders()
     {
 
-        $completed_orders = Order::GetOrderDetails(\Auth::user()->id, 'completed')->get();
+        $completed_orders = Order::GetOrderDetails(\Auth::user()->id, 'delivered')->get();
 
         $confirmed_orders = Order::GetOrderDetails(\Auth::user()->id, 'confirmed')->get();
 
@@ -45,6 +45,9 @@ class HomeController extends Controller
         $pending_orders = Order::GetOrderDetails(\Auth::user()->id, 'processing')->get();
 
         $cancelled_orders = Order::GetOrderDetails(\Auth::user()->id, 'cancelled')->get();
+
+        // dd($pending_orders);
+        
 
         return view('account.my-orders', compact('completed_orders', 'cancelled_orders', 'gone_to_market', 'confirmed_orders', 'pending_orders'));
     }
@@ -84,7 +87,7 @@ class HomeController extends Controller
             return redirct()->back()->with('status', 'Order not found');
         }
 
-        if($order->status != "completed"){
+        if($order->status != "delivered"){
             $order->status = "cancelled";
             $order->save();
         }

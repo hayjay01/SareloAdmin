@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sarelo</title>
+        <title>Sarelo - Checkout Step:3</title>
         <!--my icons here -->
         <link rel="stylesheet" type="text/css" href="/assets/icon/font-awesome/css/font-awesome.min.css">
         <!-- Bootstrap CSS -->
@@ -135,7 +135,12 @@
                                                                                 <label class="btn bg-transparent uppercase f-12">
                                                                                     choose
                                                                                     <input type="radio" value="{{$slot_details->id}}" name="slot_id"  class="addresses pos-abs">
-                                                                                </label>
+                                                                                </label> <br>
+                                                                                @if ($errors->has('slot_id'))
+                                                                                    <span class="help-block" style="color: #a94442;">
+                                                                                        <strong>{{ $errors->first('slot_id') }}</strong>
+                                                                                    </span>
+                                                                                @endif                                 
                                                                             </td>
                                                                             @else
                                                                             <td class="p-t-14 no-bd opacity-70">{{$slot_details->time_range}}</td>

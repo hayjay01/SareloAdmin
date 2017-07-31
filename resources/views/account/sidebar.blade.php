@@ -3,7 +3,7 @@
                                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                                     <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                                     <div class="page-sidebar navbar-collapse collapse">
-                                            <ul class="page-sidebar-menu m-t-0 m-b-0">
+                                            <ul class="page-sidebar-menu m-t-0 m-b-0" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                                                 <li class="nav-item open bd-gray-lite {{ \Request::path() == 'my-account' ? 'active' : '' }}">
                                                     <a href="/my-account" class="clearfix c-brand-green nav-link">
                                                         <span class="title pull-left">Account</span>

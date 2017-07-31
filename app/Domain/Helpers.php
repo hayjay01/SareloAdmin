@@ -74,7 +74,7 @@ class Helpers
 
         if($diff < 0){
             //reference should not be more than 6 character long
-            throw new Exception("Error Generating order unique reference", 1);
+            throw new Exception("Error Generating order unique reference Try Again Later..", 1);
         }
         $curr_string = strtolower(self::randomAlpha(2)).str_pad($unique_id, 6, 0, 0);
 

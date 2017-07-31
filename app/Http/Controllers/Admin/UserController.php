@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Order;
 use App\Models\UserAddress;
+use App\Models\Role;
+
 
 use DB;
 
@@ -123,5 +125,24 @@ class UserController extends Controller
         }
         
         
+    }
+
+    public function setAdmin($id)
+    {
+        $role = Role::where('name', 'Super Admin')->first();
+        $user = User::findOrFail($id);
+        $assigned_new_role = $user->role()->associate($role);
+        $assigned_new_role->update();
+
+        return back()->with('success', $user->first_name.' is now set as an administrator.');
+    }
+
+    public function setUser($id)
+    {
+        $role = Role::where('name', 'User')->first();
+        $user = User::findOrFail($id);
+        $assigned_new_role = $user->role()->associate($role);
+        $assigned_new_role->update();
+        return back()->with('success', $user->first_name.' is no longer an Administrator but now set as a normal User.');
     }
 }

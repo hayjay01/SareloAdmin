@@ -116,12 +116,74 @@
                 <!-- END CONTAINER -->
             </main>
         </div>
-        <!-- main contents ends here -->
+        
+    
+        <aside class="sidebar right_sidebar" id="right_sidebar" style="top: 70px;">
+                <!-- added this right now-->
+                <div class="full_bag">
+                <div class="body" id="basket">
+                    <ul class="p-l-0 list-style-none" id="basketList">
 
-        <!--sidebar menu on the right hand -->
-      {{--   <aside class="sidebar right_sidebar" id="right_sidebar">
+                    </ul>
+                </div>
+                <div class="footer">
+                    <ul class="p-l-0 list-style-none">
+                        <li>
+                            <p class="menus">
+                                <span>
+                                    TOTAL
+                                </span>
+                                <span class="pull-right">&#8358; <span id="totalP">9480</span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="menus">
+                                <span>
+                                    10% Service Charge
+                                </span>
+                                <span class="pull-right">&#8358; <span id="serviceCharge">9480</span></span>
+                            </p>
+                            <small>Cost for service & packaging</small>
+                        </li>
+                        <li>
+                            <p class="menus">
+                                <span>
+                                    Delivery Fee
+                                </span>
+                                <span class="pull-right">&#8358; <span id="deliveryFee">9480</span></span>
+                            </p>
+                            <small>Cost for delivering your product</small>
+                        </li>
+                        <li>
+                            <p class="menus fw-700">
+                                <span>
+                                    TOTAL
+                                </span>
+                                <span class="pull-right">&#8358; <span id="grandTP">9480</span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="{{url('/checkout/billing-address')}}" class="btn btn-block" id="submit_cart">Proceed To Checkout</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                <div class="empty_bag dis-flex">
+                    <div class="wrap text-center">
+                        <span class="flaticon-shopping-basket f-150 m-b-50" style="font-size: 150px;"></span>
+                        <!--<img src="assets/img/icon/Sarelo-basket.png" class="width-200">-->
 
-        </aside> --}}
+                        <h4 class="m-b-50 l-spacing-2">Your food basket is empty</h4>
+                        <br>
+                        <h4 class="l-spacing-2">Use the search bar to ﬁnd<br> and add items to your basket</h4>
+                    </div>
+                </div>
+                <!-- loader -->
+                <div class="loader pos-abs t-0 b-0 l-0 r-0 width-100p" style="z-index: 10000" id="loader">
+                    <img src="assets/img/loaders/aj.gif" class="width-150">
+                </div>
+
+        </aside>
 
         <!--overlay to call -->
         <!-- <div id="overlay">

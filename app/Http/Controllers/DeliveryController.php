@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Slot;
+use App\Models\Charge;
 use App\Domain\Helpers;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,9 @@ class DeliveryController extends Controller
 
     public function index(Request $request)
     {
-        $slots = [];
+        
+        $charge = Charge::pluck('percentage');
+        $slots = []; 
         $days = Slot::getDeliveryDays();
 
         usort($days, function ($a, $b)
@@ -40,10 +43,12 @@ class DeliveryController extends Controller
             $request->session()->put('order_details.slot_id', $request->slot_id);
             $request->session()->put('order_details.delivery_date', $request->delivery_date);
 
-            return redirect('/checkout/confirm-order');
+            return redirect('/checkout/confirm-order')->with('charge', $charge);
         }
+        // dd($request);
+
         $basket = Helpers::getCartSummary();
 
-        return view('checkout.select-slot', compact('slots', 'basket'));
+        return view('checkout.select-slot', compact('slots', 'basket', 'charge'));
     }
 }

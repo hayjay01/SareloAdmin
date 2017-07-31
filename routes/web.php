@@ -16,7 +16,6 @@
 Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
             Route::get('/users/{id}', 'Admin\UserController@show');
-
             Route::post('/search_user', 'Admin\UserController@search');
             Route::post('/search_order', 'Admin\OrdersController@search');
             Route::post('/search_product', 'Admin\ProductsController@search');
@@ -52,6 +51,9 @@ Route::group(['middleware' => ['admin']], function() {
             Route::get('/unit-types/delete/{id}', 'Admin\\UnitTypesController@destroy');
             Route::get('/unit-types/edit/{id}', 'Admin\\UnitTypesController@edit');
             Route::post('/unit-types/update/{id}', 'Admin\\UnitTypesController@update');
+            Route::get('/user/as/admin/{id}', 'Admin\UserController@setAdmin');
+            Route::get('/as/user/{id}', 'Admin\UserController@setUser');
+
     });
 });
 
@@ -121,10 +123,6 @@ Route::post('/transaction/{transaction_id}/edit', 'TransactionController@update'
 
 Route::get('/checkout/bank/{order_unique_reference}', 'TransactionController@bankCheckout');
 
-
-Route::get('/undefined', function(){
-    echo json_encode(['status' => 'success']);
-});
 Auth::routes();
 
 Route::get('/order/{id}/cancel', 'HomeController@cancelOrder');

@@ -20,13 +20,14 @@
                                         
                                         <li>
                                             <p class="menus">
-                                                <span>10% Service charge</span>
+                                                <span> {{ isset($charge) ? $charge [1] : ""}}% Service charge</span>
                                                 <span class="pull-right"> 
                                                     &#8358;
                                                     <span class="cash">{{number_format($basket['taxes']['service_charge'], 2)}}</span>
                                                 </span>
                                             </p>
                                         </li>
+                                        
                                         <li>
                                             <p class="menus">
                                                 <span>Delivery Charge</span>

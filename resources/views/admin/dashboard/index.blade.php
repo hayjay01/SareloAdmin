@@ -27,7 +27,7 @@
                                     @endforeach
                                 </div>
                             @endif
-                        <div class="col-md-4">
+                        <div class="col-md-3">
 
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
@@ -36,13 +36,13 @@
                                     <i class="widget-thumb-icon bg-red icon-layers"></i>
                                     <div class="widget-thumb-body">
                                         <span class="widget-thumb-subtitle">NGN</span>
-                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$ordersResult}}">0</span>
+                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$completedOrders}}">0</span>
                                     </div>
                                 </div>
                             </div>
                             <!-- END WIDGET THUMB -->
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                                 <h4 class="widget-thumb-heading">All Users</h4>
@@ -55,12 +55,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                                 <h4 class="widget-thumb-heading">Total Products</h4>
                                 <div class="widget-thumb-wrap">
-                                    <i class="widget-thumb-icon bg-blue icon-bar-chart"></i>
+                                    <i class="widget-thumb-icon icon-bar-chart" style="background-color: #337ab7;"></i>
                                     <div class="widget-thumb-body">
                                         <span class="widget-thumb-subtitle"></span>
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$products}}">0</span>
@@ -69,6 +69,88 @@
                             </div>
                             <!-- END WIDGET THUMB -->
                         </div>
+
+                        <div class="col-md-3">
+                            <!-- BEGIN WIDGET THUMB -->
+                            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                <h4 class="widget-thumb-heading">Total Orders</h4>
+                                <div class="widget-thumb-wrap">
+                                    <i class="widget-thumb-icon bg-yellow icon-pie-chart"></i>
+                                    <div class="widget-thumb-body">
+                                        <span class="widget-thumb-subtitle"></span>
+                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$totalOrders}}">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET THUMB -->
+                        </div> 
+
+                        <div class="col-md-12">
+                            
+                            <div class="col-md-3">
+                                <!-- BEGIN WIDGET THUMB -->
+                                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                    <h4 class="widget-thumb-heading">Delivered Orders</h4>
+                                    <div class="widget-thumb-wrap">
+                                        <i class="widget-thumb-icon glyphicon glyphicon-shopping-cart" style="background-color:rgba(61, 178, 6, 1)"> </i>
+                                        <div class="widget-thumb-body">
+                                            <span class="widget-thumb-subtitle"></span>
+                                            <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$ordersResult}}">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END WIDGET THUMB -->
+                            </div> 
+
+                            <div class="col-md-3">
+                                <!-- BEGIN WIDGET THUMB -->
+                                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                    <h4 class="widget-thumb-heading">Processing Orders</h4>
+                                    <div class="widget-thumb-wrap">
+                                        <i class="widget-thumb-icon bg-yellow icon-pie-chart"></i>
+                                        <div class="widget-thumb-body">
+                                            <span class="widget-thumb-subtitle"></span>
+                                            <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$processingOrders}}">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END WIDGET THUMB -->
+                            </div> 
+
+                            <div class="col-md-3">
+                                <!-- BEGIN WIDGET THUMB -->
+                                <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                        <h4 class="widget-thumb-heading">Orders at Market</h4>
+                                        <div class="widget-thumb-wrap">
+                                            <i class="widget-thumb-icon bg-grey icon-pie-chart" ></i>
+                                            <div class="widget-thumb-body">
+                                                <span class="widget-thumb-subtitle"></span>
+                                                <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$goneToMarket}}">0</span>
+                                            </div>
+                                        </div>
+                                </div>
+                                    <!-- END WIDGET THUMB -->
+                                
+                                <!-- END WIDGET THUMB -->
+                            </div> 
+
+                            <div class="col-md-3">
+                                <!-- BEGIN WIDGET THUMB -->
+                               
+
+                            <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
+                                    <h4 class="widget-thumb-heading">Cancelled Orders</h4>
+                                    <div class="widget-thumb-wrap">
+                                        <i class="widget-thumb-icon glyphicon glyphicon-trash" style="background-color: red"> </i>
+                                        <div class="widget-thumb-body">
+                                            <span class="widget-thumb-subtitle"></span>
+                                            <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$cancelledOrders}}">0</span>
+                                        </div>
+                                    </div>
+                            </div>
+
+                        </div> 
+
                           <div class="col-md-12">
 
                             <!-- Begin: life time stats -->

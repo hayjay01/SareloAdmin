@@ -64,7 +64,6 @@ class Slot extends Model
         $days_obj->map(function ($slot_day) use (&$slot_items){
             $slot_items[] = $slot_day['day_of_week'];
         });
-
         if(collect($slot_items)->count() > 0){
 
             $start_point = self::getStartPoint($slot_items, intval(date('N', strtotime('today'))));
@@ -110,9 +109,22 @@ class Slot extends Model
     public static function getStartPoint($slot_items, $day)
     {
         //handle case where start point is null
-        $start_point = array_search($day, $slot_items);
+        /**
+        if($day >= 7){
+            $day = 0
+            and also 
+            not if(!start_point) but if ($start_point === null)
+        }
+        */
+        // dd($day); 
+        if ($day >= 7){
+            $day = 0;
+        }
 
-        if(!$start_point){
+        $start_point = array_search($day, $slot_items);
+        // dd($start_point);
+        //the error i here the this function is recursive and with the the parameters it is giving it will never end...
+        if($start_point === false){
             $start_point = self::getStartPoint($slot_items, intval($day+1));
         }
 

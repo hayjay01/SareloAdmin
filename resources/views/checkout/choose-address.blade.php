@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sarelo</title>
+        <title>Sarelo - Checkout Step:2</title>
         <!--my icons here -->
         <link rel="stylesheet" type="text/css" href="/assets/icon/font-awesome/css/font-awesome.min.css">
         <!-- Bootstrap CSS -->
@@ -128,7 +128,15 @@
                                     <div class="card no-bd m-b-0">
                                         <div class="row">
                                             <div class="col-md-8">
-                                               <p>Phone Number</p>
+                                               <p>Phone Number 
+                                                @if(!empty(auth()->user()->phone))
+                                                    
+                                                @else
+                                                    <small style="color: #C75757; font-weight: bold;">
+                                                        *Please, provide phone number
+                                                    </small>
+                                                @endif
+                                               </p>
                                                <p class="w-600" id="editor">{{Auth::user()->phone}}</p>
                                                @if ($errors->has('receiver_no'))
                                                             <span class="help-block">

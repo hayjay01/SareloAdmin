@@ -151,7 +151,7 @@
                           </tr>
                          </thead>
                          <tbody style="font-size: 12px;">
-                         @foreach($order->order_products as $order_product)
+                           @foreach($order->order_products as $order_product)
                             <tr>
                               <td style="padding: 20px 10px 20px 10px; border-top: 1px solid #DDDDDD;">{{$order_product->product->name}}</td>
                               <td align="center" style="padding: 20px 10px 20px 10px; border-top: 1px solid #DDDDDD;">{{$order_product->qty}}</td>
@@ -159,8 +159,15 @@
                               <td align="right" style="padding: 20px 10px 20px 10px; border-top: 1px solid #DDDDDD;">&#x20A6; {{number_format($order_product->sub_total, 2)}}</td>
                             </tr>
                            @endforeach
+                           
                             <tr>
-                              <td align="right" colspan="4" style="padding: 20px 10px 20px 10px; border-top: 1px solid #DDDDDD;">&#x20A6; {{number_format($order->total, 2)}}</td>
+                              <b>Delivery Fee </b><td align="right" colspan="4" style="padding: 20px 10px 20px 10px; border-top: 1px solid #DDDDDD;">&#x20A6; {{number_format($order->delivery_fee, 2)}}</td>
+                            </tr>
+                            <tr>
+                              <b>Service Charge </b><td align="right" colspan="4" style="padding: 20px 10px 20px 10px; border-top: 1px solid #DDDDDD;">&#x20A6; {{number_format($order->service_charge, 2)}}</td>
+                            </tr>
+                             <tr>
+                              <b>Total </b><td align="right" colspan="4" style="padding: 20px 10px 20px 10px; border-top: 1px solid #DDDDDD;">&#x20A6; {{number_format($order->total, 2)}}</td>
                             </tr>
                          </tbody>
                        </table>

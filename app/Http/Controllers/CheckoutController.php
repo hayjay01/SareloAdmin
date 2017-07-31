@@ -26,10 +26,13 @@ class CheckoutController extends Controller
 
     public function billingAddress(Request $request)
     {
+        $charge =  Charge::pluck('percentage');
+
         if(Auth::user())
-            return redirect('/checkout/choose-address');
+            return redirect('/checkout/choose-address')->with('charge', $charge);
 
         if($request->isMethod('post')){
+            // dd("kk");
 
             $this->validate($request,[
                 'phone' => 'required|digits:11',
@@ -85,7 +88,7 @@ class CheckoutController extends Controller
 
         $basket = Helpers::getCartSummary();
 
-        return view('checkout.address', compact('basket'));
+        return view('checkout.address', compact('basket', 'charge'));
     }
 
 
@@ -93,16 +96,21 @@ class CheckoutController extends Controller
     {
         $basket = Helpers::getCartSummary();
 
+        $charge = Charge::pluck('percentage');
+
+        // dd($charge);
+
         $addresses = UserAddress::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
 
         if($request->isMethod('post'))
         {
+            // dd("ks");
 
             $this->validate($request, [
                 'address' => 'integer|required',
                 'receiver_no' => 'required|digits:11',
             ]);
-
+            // dd($request->receiver_no);
             if(!\Auth::user()->phone){
                 \Auth::user()->phone = $request->receiver_no;
                 \Auth::user()->save();
@@ -112,11 +120,10 @@ class CheckoutController extends Controller
 
             if($request->receiver_no)
                 Session::put('order_details.receiver_phone', $request->receiver_no);
-
-            return redirect('/checkout/choose-delivery-slot');
+            return redirect('/checkout/choose-delivery-slot')->with('charge', $charge);
         }
 
-        return view('checkout.choose-address', compact('basket', 'addresses'));
+        return view('checkout.choose-address', compact('basket', 'addresses', 'charge'));
     }
 
 

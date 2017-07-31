@@ -247,7 +247,7 @@ const app = {
 
             var myExp = new RegExp(searchField, 'i');
 
-            var output = '<ul class="suggestions">';
+            var output = '';
             $.each(dataLog, function(key, val){
 
               if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
@@ -262,11 +262,11 @@ const app = {
               }
 
             });
-            output += '</ul>';
+            
             if(searchField.length === 0){
               output = "";
             }
-            $(".update").html(output);
+            $("#overscroll").html(output);
         }).always(function(){
           console.log("oh!");
           $('.loading').hide();
@@ -547,7 +547,7 @@ const app = {
       displayCart();
     });
 
-    //saveCart();
+    saveCart();
     loadCart();
     displayCart();
   },

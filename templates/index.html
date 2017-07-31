@@ -93,7 +93,7 @@
                     <form class="query pos-rel">
                         <input class="form-control search p-r-20 p-l-40" type="search" placeholder="What do you want to buy?...." id="querySelector" autocomplete="off">
                         <div class="update">
-
+                            <ul class="suggestions" id="overscroll"></ul>
                         </div>
                     </form>
                 </div>
@@ -103,17 +103,10 @@
 
         <!--sidebar menu on the right hand -->
         <aside class="sidebar right_sidebar" id="right_sidebar">
-            <!--<div class="header">
-                <h3>MY FOOD BASKET
-                    <span class="pull-right items_container">
-                    <span id="items">0</span>
-                    <span class="t-u-c">items</span>
-                    </span>
-                </h3>
-            </div>-->
+            
             <div class="full_bag">
                 <div class="body" id="basket">
-                    <ul class="p-l-0 list-style-none" id="basketList">
+                    <ul class="p-l-0 list-style-none" id="basketList" class="overscroll">
 
                     </ul>
                 </div>
@@ -199,6 +192,14 @@
                 app.preventFormSubmit();
                 app.toggleSidebars();
                 $("#basketList").slimScroll({
+                    height: '100%',
+                    size: '2px',
+                    railVisible: true,
+                    railColor: '#222',
+                    railOpacity: 0.3,
+                    wheelStep: 10
+                });
+                $("#overscroll").slimScroll({
                     height: '100%',
                     size: '2px',
                     railVisible: true,

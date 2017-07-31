@@ -116,7 +116,7 @@
                     <form class="query pos-rel">
                         <input class="form-control search p-r-20 p-l-40" type="search" placeholder="What do you want to buy?...." id="querySelector" autocomplete="off">
                         <div class="update">
-
+                            <ul class="suggestions" id="overscroll"></ul>
                         </div>
                     </form>
                 </div>
@@ -153,7 +153,7 @@
                         <li>
                             <p class="menus">
                                 <span>
-                                    10% Service Charge
+                                    {{$charge[1]}}% Service Charge
                                 </span>
                                 <span class="pull-right">&#8358; <span id="serviceCharge">9480</span></span>
                             </p>
@@ -221,6 +221,14 @@
                 app.preventFormSubmit();
                 app.toggleSidebars();
                 $("#basketList").slimScroll({
+                    height: '100%',
+                    size: '2px',
+                    railVisible: true,
+                    railColor: '#222',
+                    railOpacity: 0.3,
+                    wheelStep: 10
+                });
+                $("#overscroll").slimScroll({
                     height: '100%',
                     size: '2px',
                     railVisible: true,

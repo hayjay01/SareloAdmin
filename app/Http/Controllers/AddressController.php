@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Domain\Helpers;
 use App\Models\UserAddress;
+use App\Models\Charge;
 use Illuminate\Http\Request;
 
 class AddressController extends Controller
@@ -16,8 +17,9 @@ class AddressController extends Controller
     public function create()
     {
         $basket = Helpers::getCartSummary();
+        $charge = Charge::pluck('percentage');
 
-        return view('address.create', compact('basket'));
+        return view('address.create', compact('basket', 'charge'));
     }
 
     public function store(Request $request)
